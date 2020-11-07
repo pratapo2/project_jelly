@@ -1,0 +1,14 @@
+#For Install HTTPD
+- hosts: webservers
+  remote_user: ansible
+  become: yes
+  tasks:
+
+     - name: "Ensure Apache is installed"
+      yum: name=httpd state=latest
+
+    - name: "Ensure Apache is satarted" 
+      service: name=httpd state=started
+
+    - name: "Ensure Apache is Enabled"
+      service: name=httpd enabled=yes
